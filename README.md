@@ -2,10 +2,10 @@
 sparql_fdw is experimantal code
 
 ## Installation
-* CentOs 7 install with postgresql installed from PGDG repository
+### CentOs 7 install with postgresql installed from PGDG repository
 Install multicorn
 ```
-yum install multicorn10
+yum install multicorn{PostgreSQL version number}
 ```
 
 Install needed packages
@@ -18,10 +18,31 @@ pip install SPARQLWrapper
 
 clone and execute 'python setup.py install' as root
 ```
-git clone git@bitbucket.org:al1radix/sparql_fdw.git
+git clone https://github.com/al1radix/sparql_fdw.git
 cd sparql_fdw
 python setup.py install
 ```
+### Debian/Ubuntu installation
+Install multicorn
+```
+sudo apt-get install postgresql-{PostgreSQL version number}-python3-multicorn
+```
+
+Install needed packages
+```
+sudo apt-get install -y postgresql-11-python3-multicorn
+sudo apt-get install -y python-setuptools git python-pip python-dateutil
+sudo pip install --upgrade pip
+sudo pip install SPARQLWrapper
+```
+
+clone and execute 'python setup.py install'
+```
+git clone https://github.com/al1radix/sparql_fdw.git
+cd sparql_fdw
+sudo python3 setup.py install
+```
+
 
 ## Usage
 ### create multicorn extension
@@ -63,4 +84,3 @@ GROUP BY ?eyeColorLabel ');
 ```
 
 The actual implementation is simplist and don't push down restriction, group by, order by nor limit to sparql
-
