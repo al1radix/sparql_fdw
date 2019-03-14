@@ -52,7 +52,7 @@ class SparqlForeignDataWrapper(ForeignDataWrapper):
                 #log_to_postgres('yeld result line %s'%(str(line)))
                 yield line
 
-		log_to_postgres('sparqlfdw query finished',DEBUG)
+				log_to_postgres('sparqlfdw query finished',DEBUG)
 
         except Exception as e:
             log_to_postgres(str(e), ERROR)
