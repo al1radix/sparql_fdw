@@ -36,10 +36,10 @@ class SparqlForeignDataWrapper(ForeignDataWrapper):
 
             results = sparql.query().convert()
 
-	    #log_to_postgres('sparqlfdw results %s'%(str(results["results"]["bindings"])), DEBUG)
+            #log_to_postgres('sparqlfdw results %s'%(str(results["results"]["bindings"])), DEBUG)
 
             for result in results["results"]["bindings"]:
-	        #log_to_postgres('sparqlfdw result : %s'%(result), DEBUG)
+                #log_to_postgres('sparqlfdw result : %s'%(result), DEBUG)
                 line = {}
                 for column_name in self.columns:
                     if column_name in result:
@@ -52,7 +52,7 @@ class SparqlForeignDataWrapper(ForeignDataWrapper):
                 #log_to_postgres('yeld result line %s'%(str(line)))
                 yield line
 
-				log_to_postgres('sparqlfdw query finished',DEBUG)
+            log_to_postgres('sparqlfdw query finished',DEBUG)
 
         except Exception as e:
             log_to_postgres(str(e), ERROR)

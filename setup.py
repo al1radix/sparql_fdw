@@ -7,8 +7,8 @@ from SPARQLWrapper import SPARQLWrapper2
 
 setup(
   name='sparqlfdw',
-  version='0.0.1',
-  author='alain Radix',
-  license='Postgresql',
+  version='0.1.0',
+  author='alain Radix, Stefanie Janine Stölting',
+  license='PostgreSQL',
   packages=['sparqlfdw']
 )
