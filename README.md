@@ -4,6 +4,8 @@ sparql_fdw is experimantal code, use it at your own risk. But please consider
 to open a bug report on the Github repository, if you stumble upon something,
 that doesn't work as expected.
 
+
+
 ## PostgreSQL support
 
 [![version](https://img.shields.io/badge/PostgreSQL-10-blue.svg)]()
@@ -11,6 +13,10 @@ that doesn't work as expected.
 [![version](https://img.shields.io/badge/PostgreSQL-12-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-13-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-14-blue.svg)]()
+
+[![Lang](https://img.shields.io/badge/Language-Python3-green.svg)]()
+[![PostgreSQL](https://img.shields.io/badge/License-PostgreSQL-green.svg)]()
+[![Extension](https://img.shields.io/badge/Extension-PostgreSQL-green.svg)]()
 
 ## Installation
 
