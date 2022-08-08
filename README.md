@@ -20,12 +20,12 @@ that doesn't work as expected.
 
 ## Installation
 
-### Install of multicorn
+### Installation of multicorn
 
 As the original multicorn sources are somewhat outdated, use multicorn2 instead.
 Please follow the installation guide on https://github.com/pgsql-io/multicorn2
 
-### CentOs/RockyLinux install with postgresql installed from PGDG repository
+### CentOS/RockyLinux install with postgresql installed from PGDG repository
 
 #### Installation of needed packages
 
