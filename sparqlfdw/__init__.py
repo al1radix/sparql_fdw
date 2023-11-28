@@ -36,10 +36,10 @@ class SparqlForeignDataWrapper(ForeignDataWrapper):
 
             results = sparql.query().convert()
 
-	    #log_to_postgres('sparqlfdw results %s'%(str(results["results"]["bindings"])), DEBUG)
+            #log_to_postgres('sparqlfdw results %s'%(str(results["results"]["bindings"])), DEBUG)
 
             for result in results["results"]["bindings"]:
-	        #log_to_postgres('sparqlfdw result : %s'%(result), DEBUG)
+                #log_to_postgres('sparqlfdw result : %s'%(result), DEBUG)
                 line = {}
                 for column_name in self.columns:
                     if column_name in result:
@@ -52,7 +52,7 @@ class SparqlForeignDataWrapper(ForeignDataWrapper):
                 #log_to_postgres('yeld result line %s'%(str(line)))
                 yield line
 
-	    log_to_postgres('sparqlfdw query finished',DEBUG)
+            log_to_postgres('sparqlfdw query finished',DEBUG)
 
         except Exception as e:
             log_to_postgres(str(e), ERROR)
@@ -61,28 +61,28 @@ class SparqlForeignDataWrapper(ForeignDataWrapper):
     def json2column(self, result, column ):
         ''' result is for the moment in json format and column is ColumnDefinition objeect'''
         try:
-    
+
             def json2text(result):
                 return result['value']
-    
+
             def json2json(result):
                 return json.dumps(result)
-    
+
             def json2int(result):
                 return int(result['value'])
-    
+
             def json2real(result):
                 return float(result['value'])
-    
+
             def json2timestamp(result):
                 return dateutil.parser.parse(result['value'])
-    
+
             def json2time(result):
                 return (dateutil.parser.parse(result['value']).time())
-    
+
             def json2timetz(result):
                 return (dateutil.parser.parse(result['value']).timetz())
-    
+
             transformFunction={
                 'json' : json2json,
                 'text' : json2text,
@@ -96,10 +96,9 @@ class SparqlForeignDataWrapper(ForeignDataWrapper):
                 'timestamp with time zone' : json2timestamp,
                 'timestamp without time zone' : json2timestamp,
                 }
-    
+
             return transformFunction[column.base_type_name](result)
 
         except Exception as e:
     	    log_to_postgres('sparqlfdw error %s json2column( result %s column %s'%(str(e), result, column), ERROR)
     	    raise
-    
